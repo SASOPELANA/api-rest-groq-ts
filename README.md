@@ -377,6 +377,7 @@ La API implementa las siguientes medidas de seguridad:
 - **CORS configurado**: Control de acceso desde diferentes orígenes.
 - **Límites de tamaño de archivo**: Máximo 25MB para archivos de audio.
 - **Filtrado de tipos de archivo**: Solo se aceptan formatos de audio válidos.
+- **Helmet**: Middleware que configura cabeceras HTTP de seguridad (protección contra clickjacking, MIME sniffing, XSS, fuerza HTTPS y oculta `X-Powered-By`).
 
 ### Recomendaciones de Seguridad
 
@@ -441,6 +442,7 @@ vercel
 - **Morgan** - Logger de peticiones HTTP
 - **Dotenv** - Gestión de variables de entorno
 - **CORS** - Middleware para habilitar CORS
+- **Helmet** - Middleware de seguridad para cabeceras HTTP
 - **Form Data** - Construcción de formularios multipart para Node.js
 
 ## Licencia

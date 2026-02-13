@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 
-const notFount = (_req: Request, res: Response, _next: NextFunction) => {
+const notFound = (_req: Request, res: Response, _next: NextFunction) => {
   res.status(404).json({
     error: {
       message: "Not found",
@@ -8,7 +8,7 @@ const notFount = (_req: Request, res: Response, _next: NextFunction) => {
   });
 };
 
-const serverMantenance = (
+const serverMaintenance = (
   _req: Request,
   res: Response,
   _next: NextFunction,
@@ -21,8 +21,8 @@ const serverMantenance = (
 };
 
 const middleware = {
-  notFount,
-  serverMantenance,
+  notFound,
+  serverMaintenance,
 };
 
 export default middleware;
