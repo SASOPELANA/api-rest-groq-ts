@@ -15,7 +15,7 @@ if ! command -v http &>/dev/null; then
 fi
 
 # URL base
-BASE_URL="http://localhost:3000"
+BASE_URL="https://api-rest-groq-ts.vercel.app"
 
 # Test 1: Probar límite de chat (20 por minuto)
 echo "📝 Test 1: Enviando 22 peticiones al endpoint de chat..."

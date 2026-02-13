@@ -54,17 +54,15 @@ cp axample.env .env
 Las variables de entorno son las siguientes:
 
 - `PORT`: Puerto en el que correrá el servidor (por defecto: 3000).
-- `URL_GROQ_API`: URL de la API de Groq para chat completions.
 - `GROQ_API_KEY`: Tu clave de API de Groq (obtenerla en [console.groq.com](https://console.groq.com/)).
-- `URL_AUDIO_GROQ_API`: URL de la API de Groq para transcripciones de audio.
+- `GROQ_BASE_URL`: URL base de la API de Groq (por defecto: `https://api.groq.com/openai/v1`).
 
 ### Ejemplo de archivo .env
 
 ```env
 PORT=3000
-URL_GROQ_API=https://api.groq.com/openai/v1/chat/completions
 GROQ_API_KEY=gsk_tu_api_key_aqui
-URL_AUDIO_GROQ_API=https://api.groq.com/openai/v1/audio/transcriptions
+GROQ_BASE_URL=https://api.groq.com/openai/v1
 ```
 
 > **Importante:** Nunca subas el archivo `.env` a tu repositorio. El archivo `.gitignore` ya está configurado para protegerlo.
@@ -414,8 +412,7 @@ vercel
 
 1. Configura las variables de entorno en el dashboard de Vercel:
    - `GROQ_API_KEY`: Tu API Key de Groq
-   - `URL_GROQ_API`: `https://api.groq.com/openai/v1/chat/completions`
-   - `URL_AUDIO_GROQ_API`: `https://api.groq.com/openai/v1/audio/transcriptions`
+   - `GROQ_BASE_URL`: `https://api.groq.com/openai/v1`
 
 2. Vercel se encargará automáticamente de:
    - Construir y desplegar tu aplicación
@@ -435,7 +432,7 @@ vercel
 - **Node.js** - Entorno de ejecución de JavaScript
 - **Express** - Framework web minimalista
 - **Groq API** - Modelos de IA (Llama 3.3 70B, Whisper Large V3)
-- **Axios** - Cliente HTTP para peticiones a APIs externas
+- **OpenAI SDK** - Cliente oficial compatible con la API de Groq
 - **Multer** - Middleware para manejo de archivos multipart/form-data
 - **Express Validator** - Validación de datos de entrada
 - **Express Rate Limit** - Middleware de rate limiting
@@ -443,7 +440,6 @@ vercel
 - **Dotenv** - Gestión de variables de entorno
 - **CORS** - Middleware para habilitar CORS
 - **Helmet** - Middleware de seguridad para cabeceras HTTP
-- **Form Data** - Construcción de formularios multipart para Node.js
 
 ## Licencia
 
