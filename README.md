@@ -13,7 +13,7 @@ La API implementa rate limiting para protección contra abuso, validación de da
 
 El proyecto está desplegado y disponible en Vercel:
 
-**URL de producción:** [https://tu-proyecto.vercel.app](https://tu-proyecto.vercel.app)
+**URL de producción:** [https://api-rest-groq-ts.vercel.app](https://api-rest-groq-ts.vercel.app)
 
 > Puedes probar los endpoints directamente desde la URL de producción. Recuerda respetar los límites de rate limiting.
 
