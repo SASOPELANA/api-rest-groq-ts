@@ -16,10 +16,8 @@ const getChatResponse = async (req: Request, res: Response) => {
     }
 
     const response = await groqService.chatCompletion(message);
-    //console.log(response);
 
-    const messageRes = response.choices[0].message.content;
-    //console.log(messageRes);
+    const messageRes = response?.choices[0]?.message?.content;
 
     return res.status(200).json({ message: messageRes });
   } catch (error) {
