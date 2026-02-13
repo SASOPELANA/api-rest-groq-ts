@@ -1,0 +1,85 @@
+### get index
+
+GET http://localhost:3000 HTTP/1.1
+
+
+### mi api groq chat
+
+POST http://localhost:3000/api/groq/chat HTTP/1.1
+Content-Type: application/json
+
+{
+  "message": "que dia es hoy?"
+}
+
+
+### Transcripción de Audio
+
+POST http://localhost:3000/api/groq/audio HTTP/1.1
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary
+
+------WebKitFormBoundary
+Content-Disposition: form-data; name="file"; filename="audio.ogg"
+Content-Type: audio/ogg
+
+< /home/sergio/Descargas/judith-audio-1.ogg
+
+------WebKitFormBoundary--
+
+
+### test groq api oficial
+
+POST https://api.groq.com/openai/v1/chat/completions HTTP/1.1
+Authorization: Bearer {API_KEY}
+Content-Type: application/json
+
+{
+  "messages": [
+    {
+      "content": "Hola, responde en español",
+      "role": "user"
+    }
+  ],
+  "model": "llama-3.3-70b-versatile"
+}
+
+
+### ========================================
+### PRUEBAS DE RATE LIMITING
+### ========================================
+
+### Test 1: Enviar múltiples mensajes de chat
+### Ejecuta esto 21 veces rápidamente para ver el límite
+
+POST http://localhost:3000/api/groq/chat HTTP/1.1
+Content-Type: application/json
+
+{
+  "message": "Mensaje de prueba número 1"
+}
+
+
+### Test 2: Verificar headers de rate limit
+### Revisa los headers RateLimit-Limit, RateLimit-Remaining, RateLimit-Reset
+
+POST http://localhost:3000/api/groq/chat HTTP/1.1
+Content-Type: application/json
+
+{
+  "message": "¿Cuántas peticiones me quedan?"
+}
+
+
+### Test 3: Probar límite de audio (5 por minuto)
+### Ejecuta esto 6 veces para ver el límite de audio
+
+POST http://localhost:3000/api/groq/audio HTTP/1.1
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary
+
+------WebKitFormBoundary
+Content-Disposition: form-data; name="file"; filename="test.ogg"
+Content-Type: audio/ogg
+
+< /home/sergio/Descargas/judith-audio-2.ogg
+
+------WebKitFormBoundary--
