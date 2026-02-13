@@ -2,7 +2,11 @@
 
 ## Descripción
 
-API REST desarrollada con Node.js, Express Y TypeScript que permite interactuar con los modelos de inteligencia artificial de Groq. Proporciona dos funcionalidades principales:
+API REST desarrollada con Node.js, Express Y TypeScript que permite interactuar con los modelos de inteligencia artificial de Groq.
+Se uso Express por motivos de simplicidad y por ser pocos endpoints, pero se podría escalar en un futuro a un frameworks más robustos como NestJS si el proyecto crece en complejidad.
+Por el momento, para una api sencilla y ligera, Express es una excelente opción.
+
+Proporciona dos funcionalidades principales:
 
 - **Chat con IA**: Utiliza el modelo Llama 3.3 70B Versatile para conversaciones y generación de texto.
 - **Transcripción de Audio**: Utiliza el modelo Whisper Large V3 para convertir archivos de audio a texto.
@@ -234,11 +238,11 @@ La API implementa varios niveles de protección mediante rate limiting para prev
 
 ### Límites Configurados
 
-| Tipo | Límite | Ventana de Tiempo | Endpoints Afectados |
-| ---- | ------ | ----------------- | ------------------- |
-| Global | 100 peticiones | 15 minutos | Todos |
-| Chat | 20 peticiones | 1 minuto | `/api/groq/chat` |
-| Audio | 5 peticiones | 1 minuto | `/api/groq/audio` |
+| Tipo   | Límite         | Ventana de Tiempo | Endpoints Afectados |
+| ------ | -------------- | ----------------- | ------------------- |
+| Global | 100 peticiones | 15 minutos        | Todos               |
+| Chat   | 20 peticiones  | 1 minuto          | `/api/groq/chat`    |
+| Audio  | 5 peticiones   | 1 minuto          | `/api/groq/audio`   |
 
 > **Nota:** El límite de audio es más restrictivo debido al mayor consumo de recursos en el procesamiento de archivos.
 
@@ -258,13 +262,13 @@ RateLimit-Reset: 1644696060
 
 ### Códigos de Estado HTTP
 
-| Código | Descripción |
-| ------ | ----------- |
-| 200 | Petición exitosa |
-| 400 | Error de validación o datos incorrectos |
-| 404 | Endpoint no encontrado |
-| 429 | Límite de peticiones excedido |
-| 500 | Error interno del servidor |
+| Código | Descripción                             |
+| ------ | --------------------------------------- |
+| 200    | Petición exitosa                        |
+| 400    | Error de validación o datos incorrectos |
+| 404    | Endpoint no encontrado                  |
+| 429    | Límite de peticiones excedido           |
+| 500    | Error interno del servidor              |
 
 ## Pruebas
 
