@@ -17,7 +17,12 @@ const app = express();
 app.use(helmet()); // --> primer middleware de seguridad
 app.use(morgan("dev"));
 app.use(express.json());
-app.use(cors()); // --> hacerlo con varianles de entorno
+app.use(
+  cors({
+    origin: "https://chat-bot-landing.vercel.app", // frontend permitido
+    credentials: true,
+  }),
+); // --> hacerlo con varianles de entorno
 
 // rate limiting - protección global
 app.use(globalLimiter);
