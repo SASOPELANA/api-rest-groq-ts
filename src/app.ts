@@ -19,8 +19,8 @@ app.use(morgan("dev"));
 app.use(express.json());
 app.use(
   cors({
-    origin: "https://chat-bot-landing.vercel.app", // frontend permitido
-    credentials: true,
+    origin: "*", // frontend permitido
+    //credentials: true,
   }),
 ); // --> hacerlo con varianles de entorno
 
