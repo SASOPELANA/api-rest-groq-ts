@@ -17,12 +17,7 @@ const app = express();
 app.use(helmet()); // --> primer middleware de seguridad
 app.use(morgan("dev"));
 app.use(express.json());
-app.use(
-  cors({
-    origin: "http://localhost:5173", // frontend permitido
-    credentials: true,
-  }),
-); // --> hacerlo con varianles de entorno
+app.use(cors());
 
 // rate limiting - protección global
 app.use(globalLimiter);
