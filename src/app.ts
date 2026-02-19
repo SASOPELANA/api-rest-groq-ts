@@ -19,8 +19,8 @@ app.use(morgan("dev"));
 app.use(express.json());
 app.use(
   cors({
-    origin: "*", // frontend permitido
-    //credentials: true,
+    origin: "http://localhost:5173", // frontend permitido
+    credentials: true,
   }),
 ); // --> hacerlo con varianles de entorno
 
